@@ -72,11 +72,11 @@ class PathFinderPainter extends CustomPainter {
 
   Color _getNodeColor(Node node) {
     if (node == start || node == end) {
-      return Colors.yellow;
+      return Colors.blue;
     }
 
     if (node.visited) {
-      return Colors.red;
+      return Colors.yellow;
     }
 
     return Colors.white;

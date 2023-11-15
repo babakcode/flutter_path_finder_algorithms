@@ -5,6 +5,7 @@ import 'package:flutter_path_finder_algorithms/path_finder_painter.dart';
 import 'package:flutter_path_finder_algorithms/path_finders/astar_path_finder.dart';
 import 'package:flutter_path_finder_algorithms/path_finders/base_path_finder.dart';
 import 'package:flutter_path_finder_algorithms/path_finders/bfs_path_finder.dart';
+import 'package:flutter_path_finder_algorithms/path_finders/dfs_path_finder.dart';
 import 'package:flutter_path_finder_algorithms/path_finders/node.dart';
 
 const int size = 40;
@@ -28,23 +29,31 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.black,
-        body: GridView.count(
-          crossAxisCount: 2,
-          children: <Widget>[
-            _drawMap(
-              Node.cloneList(nodes),
-              BFSPathFinder(),
-              startPosition,
-              endPosition,
-            ),
-            _drawMap(
-              Node.cloneList(nodes),
-              AStarPathFinder(),
-              startPosition,
-              endPosition,
-            ),
-          ],
+        backgroundColor: Colors.blueGrey.shade900,
+        body: Center(
+          child: GridView.count(
+            crossAxisCount: 3,
+            children: <Widget>[
+              _drawMap(
+                Node.cloneList(nodes),
+                BFSPathFinder(),
+                startPosition,
+                endPosition,
+              ),
+              _drawMap(
+                Node.cloneList(nodes),
+                AStarPathFinder(),
+                startPosition,
+                endPosition,
+              ),
+              _drawMap(
+                Node.cloneList(nodes),
+                DFSPathFinder(),
+                startPosition,
+                endPosition,
+              ),
+            ],
+          ),
         ),
       ),
     );
